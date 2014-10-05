@@ -288,3 +288,4 @@ public class ArithmeticExpressionTreeTest {
 + Can you remove the restriction that the arithmetic expression provided as input is fully parenthesized?
 + Can you add unary operators such as the unary `-`?
 + Can you add more features such as the _logarithm_ function?
++ How should you handle a `git merge` operation when multiple people have edited the same file between commit operations?
