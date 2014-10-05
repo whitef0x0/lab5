@@ -25,7 +25,6 @@ public class ArithmeticExpressionTreeTest {
 		ArithmeticExpressionTree myTree;
 		try {
 			myTree = new ArithmeticExpressionTree(expr);
-			myTree.printPostfix();
 			assertEquals(myTree.eval(), new BigDecimal(9.0));
 		}
 		catch( MalformedExpressionException e ) {
