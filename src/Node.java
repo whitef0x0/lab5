@@ -14,9 +14,19 @@ import java.math.BigDecimal;
  */
 public abstract class Node {
 
+	// How many children does this node have?
+	// We are mostly dealing with either two children or none.
 	private int numChildren;
+
+	// References to the child nodes.
 	Node[] childNodes;
 
+	/**
+	 * A constructor that takes two child nodes and creates a node.
+	 * 
+	 * @param leftChild
+	 * @param rightChild
+	 */
 	public Node(Node leftChild, Node rightChild) {
 		this.numChildren = 2;
 		childNodes = new Node[2];
@@ -24,21 +34,52 @@ public abstract class Node {
 		childNodes[1] = rightChild;
 	}
 
+	/**
+	 * The default constructor takes no arguments and returns a leaf node with
+	 * no children.
+	 */
 	public Node() {
 		numChildren = 0;
 	}
 
-	public Node getChild( int index ) throws IllegalArgumentException {
-		if ( index < 0 || index >= numChildren ) throw new IllegalArgumentException();
-		return childNodes[ index ];
+	/**
+	 * Given an index return the child node from the list of child nodes.
+	 * 
+	 * @param index
+	 *            the index for the child node needed
+	 * @return the child node at the given index
+	 * @throws IllegalArgumentException
+	 *             if an invalid index is provided
+	 */
+	public Node getChild(int index) throws IllegalArgumentException {
+		if (index < 0 || index >= numChildren)
+			throw new IllegalArgumentException();
+		return childNodes[index];
 	}
 
-	public abstract BigDecimal evaluate();
-
+	/**
+	 * A method to check if the node is a leaf node. A leaf node has no
+	 * children.
+	 * 
+	 * @return true if this is a leaf node, and return false otherwise.
+	 */
 	public boolean isLeaf() {
 		return (numChildren == 0);
 	}
 
-	public abstract char getOpName( );
-	
+	/**
+	 * An abstract method to return a character representing the operation at
+	 * this node. This method needs to be defined by classes that extend Node.
+	 * 
+	 * @return the operation this node represents.
+	 */
+	public abstract char getOpName();
+
+	/**
+	 * Evaluate this node, i.e., evaluate the arithmetic expression represented
+	 * by this node.
+	 * 
+	 * @return the value of the arithmetic expression represented by this node
+	 */
+	public abstract BigDecimal evaluate();
 }
