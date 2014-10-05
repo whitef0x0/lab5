@@ -1,4 +1,4 @@
-Lab 5: Evaluating Arithmetic Expressions using Binary Trees
+Lab 5: Evaluating Arithmetic Expressions
 ====
 
 
